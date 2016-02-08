@@ -10,8 +10,21 @@
 </head>
 <body>
 
-<script>
-</script>
+  <script>
+
+  function writeTimesTable (timesTable, timesByStart, timesByEnd)
+
+  {
+  	for(;timesByStart <= timesByEnd; timesByStart++)
+
+  	{
+  		document.write(timesTable + “ * “ + timesByStart + “ = “ + timesByStart * timesTable + “<br />”);
+  	}
+  }
+
+  writeTimesTable (4,4,9);
+
+  </script>
 
 </body>
 </html>
