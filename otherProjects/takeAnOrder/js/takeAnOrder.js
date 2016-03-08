@@ -35,7 +35,7 @@ $(document).ready(function() {
     var myRadio = $("[name='material']:checked").val();
     var myCheckValues = [];
     //each is a jquery loop for objects/arrays
-    $("[name='love']:checked").each(function() {
+    $("[name='feedback']:checked").each(function() {
       myCheckValues.push($(this).val());
     });
 
@@ -44,7 +44,7 @@ $(document).ready(function() {
     $("#log").append("<br>Value of textarea is: " + myTextArea);
     $("#log").append("<br>Value of select is: " + mySelect);
     $("#log").append("<br>Value of radio button is: " + myRadio);
-    $("#log").append("<br>Value of checks is: " + myCheckValues);
+    $("#log").append("<br>Value of checkbox is: " + myCheckValues);
   })
 
 });
