@@ -1,35 +1,45 @@
 $(document).ready(function() {
 
-  $("#mySingleLineText").on("focus", function() {
-      $(this).css("background-color", "F7F8E0");
+//change button text
+  $("#myButton").on("mouseenter", function() {
+      $(this).text("Buy Now");
     })
-    .on("blur", function() {
+    .on("mouseleave", function() {
+      $(this).text("Click here");
+    });
+
+//colour around single line text
+  $("#mySingleLineText").on("focus", function() {
+      $(this).css("background-color", "f03d00");
+    })
+  $("#mySingleLineText").on("blur", function() {
       $(this).css("background-color", "#FFF");
     });
+
 
   $("#mySelect").on("change", function() {
     var val = $(this).val();
 
-    $("mySelectMessage").html(val + "Nice selection!");
+    $("#mySelectMessage").html(val + " is a beautiful choice!");
 
   });
+
 
 
   //user click button
   $("#myButton").on("click", function() {
 
     var myInput = $("#mySingleLineText").val();
-    var myTextarea = $("#myTextArea").val();
+    var myTextArea = $("#myTextArea").val();
     var mySelect = $("#mySelect").val();
-    var myRadio = $("[name='gender']:checked").val();
+    var myRadio = $("[name='material']:checked").val();
     var myCheckValues = [];
     //each is a jquery loop for objects/arrays
-    $("[name='vehicle']:checked").each(function() {
+    $("[name='love']:checked").each(function() {
       myCheckValues.push($(this).val());
     });
 
 
-    $("#log").append("<br>User clicked the button");
     $("#log").append("<br>Value of input is: " + myInput);
     $("#log").append("<br>Value of textarea is: " + myTextArea);
     $("#log").append("<br>Value of select is: " + mySelect);
