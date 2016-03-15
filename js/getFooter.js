@@ -1,8 +1,8 @@
-$.get("http://AlisonGrant.github.io/partials/footer.html", function(data) {
+$.get("http://AlisonGrant.github.io/partials/footer.html", function(foot) {
 
   $(document).ready(function() {
 
-    $(".container").append(data);
+    $(".container").append(foot);
     $(".container").fadeIn();
 
   })
