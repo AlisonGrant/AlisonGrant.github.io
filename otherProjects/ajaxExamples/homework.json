@@ -1,44 +1,23 @@
 [
 {
-    "name": "Sparky",
-    "Age": 6,
-    "Comments ": [{
-                  "commenter": "LeBron",
-                  "location": "Cleveland"
-                },
-                {
-                  "commenter": "George",
-                  "location": "Vancouver"
-                }]
-  },
-
-  {
-    "name": "Garfield",
-    "Age": 10,
-    "Comments ": [{
-      "commenter": "Darina",
-      "location": "FlinFLon"
-                },
-                {
-                  "commenter": "Dasa",
-                  "location": "Prague"
-                },
-                {
-                  "commenter": "Akane",
-                  "location": "Yamaguchi"
-                }]
-
-  }, {
-    "name": "Nermal",
-    "Age": 0,
-    "Comments ": [{
-      "commenter": "Little Marco",
-      "location": "Miami"
+        "name": "Sally",
+        "age": 16,
+        "gender": "Female",
     },
-    {
-      "commenter": "Ping",
-      "location": "Guazhou"
-    }]
 
-  }
+    {
+      "name": "Axel",
+      "age": 22,
+      "gender": "N/A",
+    },
+   {
+     "name": "Dylan",
+     "age": 24,
+     "gender": "Male",
+   },
+   {
+     "name": "Sam",
+     "age": 12,
+     "gender": "Female",
+   },
 ]

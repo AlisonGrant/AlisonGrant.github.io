@@ -6,7 +6,21 @@ $(document).ready(function() {
             var html = "<table class='table table-hover table-striped'>" +
               "<tr><th>Name</th><th>Email</th><th>Company</th></tr>";
 
-            
+              $.each(data, function(index, item) {
+
+                  html += "<list-group>" +
+                    "<list-group-item list-group-item-success>" + item.name + "</list-group-item list-group-item-success>" +
+                    "<list-group-item list-group-item-info>" + item.age + "</list-group-item list-group-item-info>" +
+                    "<list-group-item list-group-item-danger>" + item.gender + "</list-group-item list-group-item-danger>" +
+                    "</list-group>";
+
+                }) //each function
+
+              html += "</list>";
+              $("#data").append(html);
+
+              //alert(data);
+              //console.dir(data);
 
           }) //get JSON
 
