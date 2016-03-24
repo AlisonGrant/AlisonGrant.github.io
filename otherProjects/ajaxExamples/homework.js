@@ -3,7 +3,7 @@ $(document).ready(function() {
     $("#getClients").on("click", function() {
 
         $.getJSON("http://AlisonGrant.github.io/otherProjects/ajaxExamples/homework.json", function(data) {
-            var html = "<table class='table table-hover table-striped'>" +
+            var html = "<list class='list-group'>" +
               "<tr><th>Name</th><th>Email</th><th>Company</th></tr>";
 
               $.each(data, function(index, item) {
@@ -16,7 +16,7 @@ $(document).ready(function() {
 
                 }) //each function
 
-              html += "</list>";
+              html += "</list-group>";
               $("#data").append(html);
 
               //alert(data);
