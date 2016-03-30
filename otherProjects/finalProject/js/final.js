@@ -28,6 +28,7 @@ $(document).ready(function() {
         $("#pageContent").html(data);
       })
 
+
     } else if (partial == "order") {
       $.get("partials/order.html",function(data){
         $("#pageContent").html(data);
