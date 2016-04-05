@@ -15,14 +15,6 @@ $(document).ready(function() {
     //click
   })
 
-  //EMAIL BUTTON
-  /*$("#mailButton").click(function (){
-
-    var email = prompt("Please enter your email")
-
-    }
-
-  }) */
 
   function getPartial(partial) {
 
@@ -89,7 +81,7 @@ $(document).ready(function() {
           $("#log").append("<br>Value of checkbox is: " + myCheckValues);
         })
 
-        //mailButton - to sign up for newsletters 
+        //mailButton - to sign up for newsletters
         $("#mailButton").click(function() {
 
           var email = prompt("Please enter your email address");
@@ -103,46 +95,44 @@ $(document).ready(function() {
 
       })
 
-
       // REVIEWS
     } else if (partial == "reviews") {
       $.get("partials/reviews.html", function(data) {
-        $("#pageContent").html(data);
+          $("#pageContent").html(data);
 
-        // get table
-        function productReview() {
-          $("#getReviews").on("click", function() {
+          //get table
+            $("#getReviews").on("click", function() {
 
-              $.getJSON("http://AlisonGrant.github.io/otherProjects/finalProject/jsonDatabase/final.json", function(info) {
-                  var rev = "<table class='table table-hover table-striped'>" +
-                    "<tr><th>Product</th><th>Rating</th><th>Review</th></tr>";
+                $.getJSON("http://AlisonGrant.github.io/otherProjects/finalProject/jsonDatabase/final.json", function(info) {
+                    var rev = "<table class='table table-hover table-striped'>" +
+                      "<tr><th>Product</th><th>Rating</th><th>Review</th></tr>";
 
-                  $.each(info, function(index, item) {
+                    $.each(info, function(index, item) {
 
-                      rev += "<tr>" +
-                        "<td>" + item.product + "</td>" +
-                        "<td>" + item.rating + "</td>" +
-                        "<td>" + item.review + "</td>" +
-                        "</tr>";
+                        rev += "<tr>" +
+                          "<td>" + item.product + "</td>" +
+                          "<td>" + item.rating + "</td>" +
+                          "<td>" + item.review + "</td>" +
+                          "</tr>";
 
-                    }) //each function
+                      }) //each function
 
-                  product += "</table>";
-                  $("#info").append(rev);
+                    rev += "</table>";
+                    $("#info").append(rev);
 
-                  //alert(data);
-                  //console.dir(data);
+                    //alert(data);
+                    //console.dir(data);
 
-                }) //get JSON
+                  }) //get JSON
 
-            }) //button
-        }
-        //else ends
-      })
+              }) //get reviews ends
 
-      //if ends
-    }
-    // function ends
+
+        }) //get partials ends
+
+    } //else if ends
+
+    //
   }
 
   //begin the program, get the homepage
