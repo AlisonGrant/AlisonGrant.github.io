@@ -44,8 +44,8 @@ $(document).ready(function() {
             $(this).text("Click here");
           });
 
-          //click event, check to see if everything has been filled out
-          $("#myButton").on("click",function (){
+        //click event, check to see if everything has been filled out
+        $("#myButton").on("click", function() {
 
             $("input,select").filter(function() {
               return !this.value;
@@ -59,10 +59,10 @@ $(document).ready(function() {
             var errors = $(".has-error");
 
             if (errors.length < 1) {
-              alert("no errors");
+              sendConfirmation();
             }
 
-          })//click
+          }) //click
 
 
         //colour around single line text
@@ -84,7 +84,7 @@ $(document).ready(function() {
         //user click button
         $("#myButton").on("click", function() {
 
-          var myInput = $("#mySingleLineText").val();
+          var myInput = $(".mySingleLineText").val();
           var myTextArea = $("#myTextArea").val();
           var mySelect = $("#mySelect").val();
           var myRadio = $("[name='material']:checked").val();
@@ -124,37 +124,51 @@ $(document).ready(function() {
           $("#pageContent").html(data);
 
           //get table
-            $("#getReviews").on("click", function() {
+          $("#getReviews").on("click", function() {
 
-                $.getJSON("http://AlisonGrant.github.io/otherProjects/finalProject/jsonDatabase/final.json", function(info) {
-                    var rev = "<table class='table table-hover table-striped'>" +
-                      "<tr><th>Product</th><th>Rating</th><th>Review</th></tr>";
+              $.getJSON("jsonDatabase/final.json", function(info) {
 
-                    $.each(info, function(index, item) {
+                  var rev = "<table class='table table-hover table-striped'>" +
+                    "<tr><th>Product</th><th>Rating</th><th>Review</th></tr>";
 
-                        rev += "<tr>" +
-                          "<td>" + item.product + "</td>" +
-                          "<td>" + item.rating + "</td>" +
-                          "<td>" + item.review + "</td>" +
-                          "</tr>";
+                  $.each(info, function(index, item) {
 
-                      }) //each function
+                      rev += "<tr>" +
+                        "<td>" + item.product + "</td>" +
+                        "<td>" + item.rating + "</td>" +
+                        "<td>" + item.review + "</td>" +
+                        "</tr>";
 
-                    rev += "</table>";
-                    $("#info").append(rev);
+                    }) //each function
 
-                    //alert(data);
-                    //console.dir(data);
+                  rev += "</table>";
+                  $("#info").append(rev);
 
-                  }) //get JSON
+                }) //get JSON
 
-              }) //get reviews ends
+            }) //get reviews ends
 
 
         }) //get partials ends
 
     } //else if ends
 
+    function sendConfirmation() {
+      //make and object to record for database
+      var order = {};
+      //get all jquery objects
+      var formData = $("input, select");
+      formData.each(function() {
+        //get ID
+        var id = $(this).attr("id");
+        //set the field and the value
+        order[id] = $(this).val();
+      })
+      alert("Sending to our Database!" + JSON.stringify(order));
+
+      $("#successMsg").html("Order Received!<br></br>");
+
+    }
     //
   }
 
