@@ -44,6 +44,27 @@ $(document).ready(function() {
             $(this).text("Click here");
           });
 
+          //click event, check to see if everything has been filled out
+          $("#myButton").on("click",function (){
+
+            $("input,select").filter(function() {
+              return !this.value;
+            }).closest("div").addClass("has-error");
+
+            //remove error once they have inputed information
+            $("input,select").filter(function() {
+              return this.value;
+            }).closest("div").removeClass("has-error");
+
+            var errors = $(".has-error");
+
+            if (errors.length < 1) {
+              alert("no errors");
+            }
+
+          })//click
+
+
         //colour around single line text
         $("#mySingleLineText").on("focus", function() {
           $(this).css("background-color", "f03d00");
@@ -73,13 +94,15 @@ $(document).ready(function() {
             myCheckValues.push($(this).val());
           });
 
-
+          /*
           $("#log").append("<br>Value of input is: " + myInput);
           $("#log").append("<br>Value of textarea is: " + myTextArea);
           $("#log").append("<br>Value of select is: " + mySelect);
           $("#log").append("<br>Value of radio button is: " + myRadio);
           $("#log").append("<br>Value of checkbox is: " + myCheckValues);
+          */
         })
+
 
         //mailButton - to sign up for newsletters
         $("#mailButton").click(function() {
