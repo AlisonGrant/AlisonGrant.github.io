@@ -29,6 +29,13 @@ $(document).ready(function() {
     } else if (partial == "collection") {
       $.get("partials/collection.html", function(data) {
         $("#pageContent").html(data);
+
+        //go to order page
+        $("#buyButton").on("click", function(){
+          //alert("buy things");
+          location.href = "otherProjects/finalProject/partials/order.html";
+
+        })
       })
 
       //ORDER
@@ -58,7 +65,7 @@ $(document).ready(function() {
             }).closest("div").removeClass("has-error");
 
             var errors = $(".has-error");
-alert("errors" + errors.length);
+//alert("errors" + errors.length);
             if (errors.length < 1) {
               sendConfirmation();
             }
