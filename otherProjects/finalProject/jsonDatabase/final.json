@@ -3,5 +3,15 @@
 "product": "Gold Bar",
 "rating" : "9/10",
 "review": "Amazing quality, looked exactly as shown in the store and the engraved message looks beautiful! "
-}
+},
+{
+"product": "Bronze Bar",
+"rating" : "7/10",
+"review": "The colour was a little bit more rustic than the photo but the message is perfectly engraved, great for a country look! "
+},
+{
+"product": "Silver Heart",
+"rating" : "10/10",
+"review": "Beautiful material and size, shipped quickly and no problems at all! "
+},
 ]
