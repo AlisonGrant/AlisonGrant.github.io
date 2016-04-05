@@ -46,6 +46,7 @@ $(document).ready(function() {
 
         //click event, check to see if everything has been filled out
         $("#myButton").on("click", function() {
+          //alert("!!!");
 
             $("input,select").filter(function() {
               return !this.value;
@@ -57,7 +58,7 @@ $(document).ready(function() {
             }).closest("div").removeClass("has-error");
 
             var errors = $(".has-error");
-
+alert("errors" + errors.length);
             if (errors.length < 1) {
               sendConfirmation();
             }
@@ -81,6 +82,7 @@ $(document).ready(function() {
 
         });
 
+/*
         //user click button
         $("#myButton").on("click", function() {
 
@@ -94,14 +96,15 @@ $(document).ready(function() {
             myCheckValues.push($(this).val());
           });
 
-          /*
+
           $("#log").append("<br>Value of input is: " + myInput);
           $("#log").append("<br>Value of textarea is: " + myTextArea);
           $("#log").append("<br>Value of select is: " + mySelect);
           $("#log").append("<br>Value of radio button is: " + myRadio);
           $("#log").append("<br>Value of checkbox is: " + myCheckValues);
-          */
+
         })
+        */
 
 
         //mailButton - to sign up for newsletters
