@@ -18,6 +18,7 @@ $(document).ready(function() {
 
   function getPartial(partial) {
 
+    //receiving home pageContent
     if (partial == "home") {
       $.get("partials/home.html", function(data) {
         $("#pageContent").html(data);
@@ -25,14 +26,13 @@ $(document).ready(function() {
 
       })
 
-      //COLLECTION
+      //receiving collection pageContent
     } else if (partial == "collection") {
       $.get("partials/collection.html", function(data) {
           $("#pageContent").html(data);
 
-          //go to order page
+          //go to order page when user clicks "buy now" button
           $(".buyButton").on("click", function() {
-              //location.href = "partials/order.html";
               $.get("partials/order.html", function(data) {
                   $("#pageContent").html(data);
 
@@ -67,56 +67,56 @@ $(document).ready(function() {
 
 
                     //colour around single line text
-                    // singleLine 1
+                    // Card Holder's Name
                     $("#mySingleLineText").on("focus", function() {
                       $(this).css("background-color", "f03d00");
                     })
                     $("#mySingleLineText").on("blur", function() {
                       $(this).css("background-color", "#FFF");
                     });
-                    //singleLine 2
+                    //Credit Card Number
                     $("#mySingleLineText2").on("focus", function() {
                       $(this).css("background-color", "f03d00");
                     })
                     $("#mySingleLineText2").on("blur", function() {
                       $(this).css("background-color", "#FFF");
                     });
-                    // single line 3
+                    // Card CVV
                     $("#mySingleLineText3").on("focus", function() {
                       $(this).css("background-color", "f03d00");
                     })
                     $("#mySingleLineText3").on("blur", function() {
                       $(this).css("background-color", "#FFF");
                     });
-                    //single line 4
+                    // Expiry Date
                     $("#mySingleLineText4").on("focus", function() {
                       $(this).css("background-color", "f03d00");
                     })
                     $("#mySingleLineText4").on("blur", function() {
                       $(this).css("background-color", "#FFF");
                     });
-                    //single line 5
+                    // Address
                     $("#mySingleLineText5").on("focus", function() {
                       $(this).css("background-color", "f03d00");
                     })
                     $("#mySingleLineText5").on("blur", function() {
                       $(this).css("background-color", "#FFF");
                     });
-                    //single line 6
+                    // ZIP Code
                     $("#mySingleLineText6").on("focus", function() {
                       $(this).css("background-color", "f03d00");
                     })
                     $("#mySingleLineText6").on("blur", function() {
                       $(this).css("background-color", "#FFF");
                     });
-                    // single line 7
+                    // State/Province
                     $("#mySingleLineText7").on("focus", function() {
                       $(this).css("background-color", "f03d00");
                     })
                     $("#mySingleLineText7").on("blur", function() {
                       $(this).css("background-color", "#FFF");
                     });
-                    //single line 8
+                    // Country
                     $("#mySingleLineText8").on("focus", function() {
                       $(this).css("background-color", "f03d00");
                     })
@@ -124,20 +124,58 @@ $(document).ready(function() {
                       $(this).css("background-color", "#FFF");
                     });
 
-
+                    // drop down of chain length choices
                   $("#mySelect").on("change", function() {
                     var val = $(this).val();
 
+                    // write message after user chooses necklace
                     $("#mySelectMessage").html(val + " is a beautiful choice!");
 
                   });
 
+                  //user click button
+                  $("#myButton").on("click", function() {
+
+                    // once the button is clicked check to values inputed in the sngle line text
+                    var myInput1 = $("#mySingleLineText").val();
+                    var myInput2 = $("#mySingleLineText2").val();
+                    var myInput3 = $("#mySingleLineText3").val();
+                    var myInput4 = $("#mySingleLineText4").val();
+                    var myInput5 = $("#mySingleLineText5").val();
+                    var myInput6 = $("#mySingleLineText6").val();
+                    var myInput7 = $("#mySingleLineText7").val();
+                    var myInput8 = $("#mySingleLineText8").val();
+                    var myTextArea = $("#myTextArea").val();
+                    var mySelect = $("#mySelect").val();
+                    var myRadio = $("[name='material']:checked").val();
+                    var myCheckValues = [];
+                    //each is a jquery loop for objects/arrays
+                    $("[name='feedback']:checked").each(function() {
+                      myCheckValues.push($(this).val());
+                    });
+
+                    // log inputed information onto screen
+                    $("#log").append("<br>Card Holder's Name: " + myInput1);
+                    $("#log").append("<br>Credit Card Number: " + myInput2);
+                    $("#log").append("<br>Card CVV: " + myInput3);
+                    $("#log").append("<br>Expiry Date: " + myInput4);
+                    $("#log").append("<br>Address: " + myInput5);
+                    $("#log").append("<br>ZIP Code: " + myInput6);
+                    $("#log").append("<br>State/Province: " + myInput7);
+                    $("#log").append("<br>country: " + myInput8);
+                    $("#log").append("<br>Custom message: " + myTextArea);
+                    $("#log").append("<br>Chain length: " + mySelect);
+                    $("#log").append("<br>Material and pendant: " + myRadio);
+                    $("#log").append("<br>Feedback: " + myCheckValues);
+                  })
+
 
                   //mailButton - to sign up for newsletters
                   $("#mailButton").click(function() {
-
+                    // prompt customer to input email address
                     var email = prompt("Please enter your email address");
                     var email2 = function(email) {
+                      // once inputed, output the email and send the message
                       confirm("Thanks! Happy shopping!");
                     };
                     email2(email)
@@ -151,7 +189,7 @@ $(document).ready(function() {
         }) //get collection.html
 
 
-      //ORDER
+        //receiving order pageContent
     } else if (partial == "order") {
       $.get("partials/order.html", function(data) {
         $("#pageContent").html(data);
@@ -186,68 +224,69 @@ $(document).ready(function() {
           }) //click
 
 
-        //colour around single line text
-        // singleLine 1
-        $("#mySingleLineText").on("focus", function() {
-          $(this).css("background-color", "f03d00");
-        })
-        $("#mySingleLineText").on("blur", function() {
-          $(this).css("background-color", "#FFF");
-        });
-        //singleLine 2
-        $("#mySingleLineText2").on("focus", function() {
-          $(this).css("background-color", "f03d00");
-        })
-        $("#mySingleLineText2").on("blur", function() {
-          $(this).css("background-color", "#FFF");
-        });
-        // single line 3
-        $("#mySingleLineText3").on("focus", function() {
-          $(this).css("background-color", "f03d00");
-        })
-        $("#mySingleLineText3").on("blur", function() {
-          $(this).css("background-color", "#FFF");
-        });
-        //single line 4
-        $("#mySingleLineText4").on("focus", function() {
-          $(this).css("background-color", "f03d00");
-        })
-        $("#mySingleLineText4").on("blur", function() {
-          $(this).css("background-color", "#FFF");
-        });
-        //single line 5
-        $("#mySingleLineText5").on("focus", function() {
-          $(this).css("background-color", "f03d00");
-        })
-        $("#mySingleLineText5").on("blur", function() {
-          $(this).css("background-color", "#FFF");
-        });
-        //single line 6
-        $("#mySingleLineText6").on("focus", function() {
-          $(this).css("background-color", "f03d00");
-        })
-        $("#mySingleLineText6").on("blur", function() {
-          $(this).css("background-color", "#FFF");
-        });
-        // single line 7
-        $("#mySingleLineText7").on("focus", function() {
-          $(this).css("background-color", "f03d00");
-        })
-        $("#mySingleLineText7").on("blur", function() {
-          $(this).css("background-color", "#FFF");
-        });
-        //single line 8
-        $("#mySingleLineText8").on("focus", function() {
-          $(this).css("background-color", "f03d00");
-        })
-        $("#mySingleLineText8").on("blur", function() {
-          $(this).css("background-color", "#FFF");
-        });
+          //colour around single line text
+          // Card Holder's Name
+          $("#mySingleLineText").on("focus", function() {
+            $(this).css("background-color", "f03d00");
+          })
+          $("#mySingleLineText").on("blur", function() {
+            $(this).css("background-color", "#FFF");
+          });
+          //Credit Card Number
+          $("#mySingleLineText2").on("focus", function() {
+            $(this).css("background-color", "f03d00");
+          })
+          $("#mySingleLineText2").on("blur", function() {
+            $(this).css("background-color", "#FFF");
+          });
+          // Card CVV
+          $("#mySingleLineText3").on("focus", function() {
+            $(this).css("background-color", "f03d00");
+          })
+          $("#mySingleLineText3").on("blur", function() {
+            $(this).css("background-color", "#FFF");
+          });
+          // Expiry Date
+          $("#mySingleLineText4").on("focus", function() {
+            $(this).css("background-color", "f03d00");
+          })
+          $("#mySingleLineText4").on("blur", function() {
+            $(this).css("background-color", "#FFF");
+          });
+          // Address
+          $("#mySingleLineText5").on("focus", function() {
+            $(this).css("background-color", "f03d00");
+          })
+          $("#mySingleLineText5").on("blur", function() {
+            $(this).css("background-color", "#FFF");
+          });
+          // ZIP Code
+          $("#mySingleLineText6").on("focus", function() {
+            $(this).css("background-color", "f03d00");
+          })
+          $("#mySingleLineText6").on("blur", function() {
+            $(this).css("background-color", "#FFF");
+          });
+          // State/Province
+          $("#mySingleLineText7").on("focus", function() {
+            $(this).css("background-color", "f03d00");
+          })
+          $("#mySingleLineText7").on("blur", function() {
+            $(this).css("background-color", "#FFF");
+          });
+          // Country
+          $("#mySingleLineText8").on("focus", function() {
+            $(this).css("background-color", "f03d00");
+          })
+          $("#mySingleLineText8").on("blur", function() {
+            $(this).css("background-color", "#FFF");
+          });
 
-
+          // drop down of chain length choices
         $("#mySelect").on("change", function() {
           var val = $(this).val();
 
+          // write message after user chooses necklace
           $("#mySelectMessage").html(val + " is a beautiful choice!");
 
         });
@@ -256,7 +295,7 @@ $(document).ready(function() {
         //user click button
         $("#myButton").on("click", function() {
 
-
+          // once the button is clicked check to values inputed in the sngle line text
           var myInput1 = $("#mySingleLineText").val();
           var myInput2 = $("#mySingleLineText2").val();
           var myInput3 = $("#mySingleLineText3").val();
@@ -274,7 +313,7 @@ $(document).ready(function() {
             myCheckValues.push($(this).val());
           });
 
-
+          // log inputed information onto screen
           $("#log").append("<br>Card Holder's Name: " + myInput1);
           $("#log").append("<br>Credit Card Number: " + myInput2);
           $("#log").append("<br>Card CVV: " + myInput3);
@@ -294,9 +333,10 @@ $(document).ready(function() {
 
         //mailButton - to sign up for newsletters
         $("#mailButton").click(function() {
-
+          // prompt customer to input email address
           var email = prompt("Please enter your email address");
           var email2 = function(email) {
+            // once inputed, output the email and send the message
             confirm("Thanks! Happy shopping!");
           };
           email2(email)
@@ -313,14 +353,14 @@ $(document).ready(function() {
 
           //get table
           $("#getReviews").on("click", function() {
-
+            //get info from JSON file
               $.getJSON("jsonDatabase/final.json", function(info) {
-
+                //table type and headers
                   var rev = "<table class='table table-hover table-striped'>" +
                     "<tr><th>Product</th><th>Rating</th><th>Review</th></tr>";
 
                   $.each(info, function(index, item) {
-
+                    // column information
                       rev += "<tr>" +
                         "<td>" + item.product + "</td>" +
                         "<td>" + item.rating + "</td>" +
@@ -343,7 +383,7 @@ $("#pageContent").fadeIn();
     } //else if ends
 
 
-
+// after user fills out order form check to make sure all objects are inputed
     function sendConfirmation() {
       //make and object to record for database
       var order = {};
@@ -355,8 +395,9 @@ $("#pageContent").fadeIn();
         //set the field and the value
         order[id] = $(this).val();
       })
+      // display all information inputed in JSON string
       alert("Sending to our Database!" + JSON.stringify(order));
-
+      //display this message after alert
       $("#successMsg").html("Order Received!<br></br>");
 
     }
