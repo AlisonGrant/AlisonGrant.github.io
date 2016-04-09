@@ -28,15 +28,128 @@ $(document).ready(function() {
       //COLLECTION
     } else if (partial == "collection") {
       $.get("partials/collection.html", function(data) {
-        $("#pageContent").html(data);
+          $("#pageContent").html(data);
 
-        //go to order page
-        $("#buyButton").on("click", function(){
-          //alert("buy things");
-          location.href = "otherProjects/finalProject/partials/order.html";
+          //go to order page
+          $(".buyButton").on("click", function() {
+              //location.href = "partials/order.html";
+              $.get("partials/order.html", function(data) {
+                  $("#pageContent").html(data);
 
-        })
-      })
+                  //change button text
+                  $("#myButton").on("mouseenter", function() {
+                      $(this).text("Buy Now");
+                    })
+                    .on("mouseleave", function() {
+                      $(this).text("Click here");
+                    });
+
+                  //click event, check to see if everything has been filled out
+                  $("#myButton").on("click", function() {
+                      //alert("!!!");
+
+                      $("input,select").filter(function() {
+                        return !this.value;
+                      }).closest("div").addClass("has-error");
+
+                      //remove error once they have inputed information
+                      $("input,select").filter(function() {
+                        return this.value;
+                      }).closest("div").removeClass("has-error");
+
+                      var errors = $(".has-error");
+                      //alert("errors" + errors.length);
+                      if (errors.length < 1) {
+                        sendConfirmation();
+                      }
+
+                    }) //click
+
+
+                    //colour around single line text
+                    // singleLine 1
+                    $("#mySingleLineText").on("focus", function() {
+                      $(this).css("background-color", "f03d00");
+                    })
+                    $("#mySingleLineText").on("blur", function() {
+                      $(this).css("background-color", "#FFF");
+                    });
+                    //singleLine 2
+                    $("#mySingleLineText2").on("focus", function() {
+                      $(this).css("background-color", "f03d00");
+                    })
+                    $("#mySingleLineText2").on("blur", function() {
+                      $(this).css("background-color", "#FFF");
+                    });
+                    // single line 3
+                    $("#mySingleLineText3").on("focus", function() {
+                      $(this).css("background-color", "f03d00");
+                    })
+                    $("#mySingleLineText3").on("blur", function() {
+                      $(this).css("background-color", "#FFF");
+                    });
+                    //single line 4
+                    $("#mySingleLineText4").on("focus", function() {
+                      $(this).css("background-color", "f03d00");
+                    })
+                    $("#mySingleLineText4").on("blur", function() {
+                      $(this).css("background-color", "#FFF");
+                    });
+                    //single line 5
+                    $("#mySingleLineText5").on("focus", function() {
+                      $(this).css("background-color", "f03d00");
+                    })
+                    $("#mySingleLineText5").on("blur", function() {
+                      $(this).css("background-color", "#FFF");
+                    });
+                    //single line 6
+                    $("#mySingleLineText6").on("focus", function() {
+                      $(this).css("background-color", "f03d00");
+                    })
+                    $("#mySingleLineText6").on("blur", function() {
+                      $(this).css("background-color", "#FFF");
+                    });
+                    // single line 7
+                    $("#mySingleLineText7").on("focus", function() {
+                      $(this).css("background-color", "f03d00");
+                    })
+                    $("#mySingleLineText7").on("blur", function() {
+                      $(this).css("background-color", "#FFF");
+                    });
+                    //single line 8
+                    $("#mySingleLineText8").on("focus", function() {
+                      $(this).css("background-color", "f03d00");
+                    })
+                    $("#mySingleLineText8").on("blur", function() {
+                      $(this).css("background-color", "#FFF");
+                    });
+
+
+                  $("#mySelect").on("change", function() {
+                    var val = $(this).val();
+
+                    $("#mySelectMessage").html(val + " is a beautiful choice!");
+
+                  });
+
+
+                  //mailButton - to sign up for newsletters
+                  $("#mailButton").click(function() {
+
+                    var email = prompt("Please enter your email address");
+                    var email2 = function(email) {
+                      confirm("Thanks! Happy shopping!");
+                    };
+                    email2(email)
+
+                    //end mailButton
+                  })
+
+                }) //get order
+
+            }) //butButton click
+        }) //get collection.html
+
 
       //ORDER
     } else if (partial == "order") {
@@ -53,7 +166,7 @@ $(document).ready(function() {
 
         //click event, check to see if everything has been filled out
         $("#myButton").on("click", function() {
-          //alert("!!!");
+            //alert("!!!");
 
             $("input,select").filter(function() {
               return !this.value;
@@ -65,7 +178,7 @@ $(document).ready(function() {
             }).closest("div").removeClass("has-error");
 
             var errors = $(".has-error");
-//alert("errors" + errors.length);
+            //alert("errors" + errors.length);
             if (errors.length < 1) {
               sendConfirmation();
             }
@@ -74,10 +187,60 @@ $(document).ready(function() {
 
 
         //colour around single line text
+        // singleLine 1
         $("#mySingleLineText").on("focus", function() {
           $(this).css("background-color", "f03d00");
         })
         $("#mySingleLineText").on("blur", function() {
+          $(this).css("background-color", "#FFF");
+        });
+        //singleLine 2
+        $("#mySingleLineText2").on("focus", function() {
+          $(this).css("background-color", "f03d00");
+        })
+        $("#mySingleLineText2").on("blur", function() {
+          $(this).css("background-color", "#FFF");
+        });
+        // single line 3
+        $("#mySingleLineText3").on("focus", function() {
+          $(this).css("background-color", "f03d00");
+        })
+        $("#mySingleLineText3").on("blur", function() {
+          $(this).css("background-color", "#FFF");
+        });
+        //single line 4
+        $("#mySingleLineText4").on("focus", function() {
+          $(this).css("background-color", "f03d00");
+        })
+        $("#mySingleLineText4").on("blur", function() {
+          $(this).css("background-color", "#FFF");
+        });
+        //single line 5
+        $("#mySingleLineText5").on("focus", function() {
+          $(this).css("background-color", "f03d00");
+        })
+        $("#mySingleLineText5").on("blur", function() {
+          $(this).css("background-color", "#FFF");
+        });
+        //single line 6
+        $("#mySingleLineText6").on("focus", function() {
+          $(this).css("background-color", "f03d00");
+        })
+        $("#mySingleLineText6").on("blur", function() {
+          $(this).css("background-color", "#FFF");
+        });
+        // single line 7
+        $("#mySingleLineText7").on("focus", function() {
+          $(this).css("background-color", "f03d00");
+        })
+        $("#mySingleLineText7").on("blur", function() {
+          $(this).css("background-color", "#FFF");
+        });
+        //single line 8
+        $("#mySingleLineText8").on("focus", function() {
+          $(this).css("background-color", "f03d00");
+        })
+        $("#mySingleLineText8").on("blur", function() {
           $(this).css("background-color", "#FFF");
         });
 
@@ -89,11 +252,19 @@ $(document).ready(function() {
 
         });
 
-/*
+
         //user click button
         $("#myButton").on("click", function() {
 
-          var myInput = $(".mySingleLineText").val();
+
+          var myInput1 = $("#mySingleLineText").val();
+          var myInput2 = $("#mySingleLineText2").val();
+          var myInput3 = $("#mySingleLineText3").val();
+          var myInput4 = $("#mySingleLineText4").val();
+          var myInput5 = $("#mySingleLineText5").val();
+          var myInput6 = $("#mySingleLineText6").val();
+          var myInput7 = $("#mySingleLineText7").val();
+          var myInput8 = $("#mySingleLineText8").val();
           var myTextArea = $("#myTextArea").val();
           var mySelect = $("#mySelect").val();
           var myRadio = $("[name='material']:checked").val();
@@ -104,14 +275,21 @@ $(document).ready(function() {
           });
 
 
-          $("#log").append("<br>Value of input is: " + myInput);
-          $("#log").append("<br>Value of textarea is: " + myTextArea);
-          $("#log").append("<br>Value of select is: " + mySelect);
-          $("#log").append("<br>Value of radio button is: " + myRadio);
-          $("#log").append("<br>Value of checkbox is: " + myCheckValues);
-
+          $("#log").append("<br>Card Holder's Name: " + myInput1);
+          $("#log").append("<br>Credit Card Number: " + myInput2);
+          $("#log").append("<br>Card CVV: " + myInput3);
+          $("#log").append("<br>Expiry Date: " + myInput4);
+          $("#log").append("<br>Address: " + myInput5);
+          $("#log").append("<br>ZIP Code: " + myInput6);
+          $("#log").append("<br>State/Province: " + myInput7);
+          $("#log").append("<br>country: " + myInput8);
+          $("#log").append("<br>Custom message: " + myTextArea);
+          $("#log").append("<br>Chain length: " + mySelect);
+          $("#log").append("<br>Material and pendant: " + myRadio);
+          $("#log").append("<br>Feedback: " + myCheckValues);
         })
-        */
+
+
 
 
         //mailButton - to sign up for newsletters
@@ -161,7 +339,10 @@ $(document).ready(function() {
 
         }) //get partials ends
 
+$("#pageContent").fadeIn();
     } //else if ends
+
+
 
     function sendConfirmation() {
       //make and object to record for database
@@ -181,6 +362,7 @@ $(document).ready(function() {
     }
     //
   }
+
 
   //begin the program, get the homepage
   getPartial("home");
