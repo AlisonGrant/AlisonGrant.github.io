@@ -128,9 +128,6 @@ $(document).ready(function() {
                   $("#mySelect").on("change", function() {
                     var val = $(this).val();
 
-                    // write message after user chooses necklace
-                    $("#mySelectMessage").html(val + " is a beautiful choice!");
-
                   });
 
                   //user click button
@@ -286,9 +283,6 @@ $(document).ready(function() {
         $("#mySelect").on("change", function() {
           var val = $(this).val();
 
-          // write message after user chooses necklace
-          $("#mySelectMessage").html(val + " is a beautiful choice!");
-
         });
 
 
@@ -321,7 +315,7 @@ $(document).ready(function() {
           $("#log").append("<br>Address: " + myInput5);
           $("#log").append("<br>ZIP Code: " + myInput6);
           $("#log").append("<br>State/Province: " + myInput7);
-          $("#log").append("<br>country: " + myInput8);
+          $("#log").append("<br>Country: " + myInput8);
           $("#log").append("<br>Custom message: " + myTextArea);
           $("#log").append("<br>Chain length: " + mySelect);
           $("#log").append("<br>Material and pendant: " + myRadio);
